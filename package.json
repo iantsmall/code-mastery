@@ -1,20 +1,38 @@
 {
-    "name": "ts-jest-sample",
-    "version": "0.1.0",
-    "description": "A simple project to demonstrate TypeScript + Jest + ts-jest",
-    "main": "lib/src/index.js",
-    "typings": "lib/src/index.d.ts",
-    "repository": "github.com:xogeny/ts-jest-sample",
-    "author": "Michael M. Tiller",
-    "license": "MIT",
-    "devDependencies": {
-        "@types/jest": "^22.1.1",
-        "jest": "^22.1.4",
-        "ts-jest": "^22.0.2",
-        "typescript": "^2.7.1"
-    },
-    "scripts": {
-        "compile": "tsc",
-        "test": "jest --env=node --colors --coverage test"
-    }
+  "name": "code-mastery",
+  "version": "0.1.0",
+  "description": "A simple project collect code-mastery practice files of Ian T. Small",
+  "main": "lib/src/index.js",
+  "typings": "lib/src/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "github.com/iantsmall/code-mastery"
+  },
+  "author": "Ian T. Small",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^22.2.3",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.5",
+    "typescript": "^4.2.4"
+  },
+  "scripts": {
+    "compile": "tsc",
+    "test": "jest --env=node --colors --coverage test"
+  },
+  "keywords": [
+    "demo",
+    "training",
+    "learning",
+    "examples",
+    "algorithms",
+    "practice",
+    "portfolio"
+  ],
+  "dependencies": {
+    "bufferutil": "^4.0.3",
+    "canvas": "^2.7.0",
+    "ts-node": "^9.1.1",
+    "utf-8-validate": "^5.0.4"
+  }
 }

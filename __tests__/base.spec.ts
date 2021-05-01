@@ -1,4 +1,4 @@
-import { evaluate, BinaryOperation, BinaryOperators } from "../src";
+import { BinaryOperation, BinaryOperators, evaluate } from "../src";
 
 describe("Simple expression tests", () => {
     test("Check literal value", () => {
@@ -30,3 +30,5 @@ function bin(op: BinaryOperators, x: number, y: number): BinaryOperation {
         right: { type: "literal", value: y },
     };
 }
+
+
