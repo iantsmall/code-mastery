@@ -34,4 +34,7 @@ describe('jumpGame2 tests', () => {
   test('Check 3 step jump [3, 3, 1, 1, 1, 1]', () => {
     expect(jump([3, 3, 0, 1, 1, 1])).toBe(3);
   });
+  test('Check 3 step jump [3,4,3,1,0,7,0,3,0,2,0,3]', () => {
+    expect(jump([3, 4, 3, 1, 0, 7, 0, 3, 0, 2, 0, 3])).toBe(3);
+  });
 });

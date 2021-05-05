@@ -56,29 +56,32 @@ call recursiveJump(0) to start recursive search
 
 */
 /* eslint-enable max-len */
+const calcNM = (idx: number, nums: number[]) => idx + nums[idx];
+const canReachEnd = (idx: number, nums: number[]) => calcNM(idx, nums) + 1 >= nums.length;
 export default function jump(nums: number[]): number {
-  const canReachEnd = (idx:number) => nums[idx] + idx + 1 >= nums.length;
-  const calcNM = (idx: number) => idx + nums[idx];
   if (nums.length === 1) {
     return 0; // immediately return, we've started at the end, no jumps needed
   }
-  if (canReachEnd(0)) {
+  if (canReachEnd(0, nums)) {
     // we can reach the last node in one jump, so just return 1 without futher traversal
     return 1;
   }
   const jumpFrom = (idx: number): number => {
-    const nM = calcNM(idx);
+    const nM = calcNM(idx, nums);
     // find the next largest idx
     let furthestReachingIdx = idx;
     for (let i = idx + 1; i <= nM; i += 1) {
-      if (calcNM(i) > nM) {
+      if (calcNM(i, nums) > calcNM(furthestReachingIdx, nums)) {
+        if (canReachEnd(i, nums)) {
+          // we can shortcut, as we know now that in two jumps we can reach the end
+          return 2;
+        }
         // found a larger ranging index
         furthestReachingIdx = i;
       }
-      if (canReachEnd(furthestReachingIdx)) {
-        // we can shortcut, as we know now that in two jumps we can reach the end
-        return 2;
-      }
+    }
+    if (furthestReachingIdx === idx) {
+      throw Error(`Unable to reach end from nums[${furthestReachingIdx}]`);
     }
     return jumpFrom(furthestReachingIdx) + 1;
   };
